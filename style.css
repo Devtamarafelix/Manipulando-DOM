@@ -93,3 +93,18 @@ a {
 .header nav ul li a {
   font-size: 1.25rem;
 }
+
+@media screen and (min-width: 800px) {
+  .header button {
+    display: none;
+  }
+
+  .header nav {
+    display: block;
+  }
+
+  .header nav ul {
+    flex-direction: row;
+  }
+
+}
