@@ -43,7 +43,33 @@
     </div>
   </header>
 
-  <script src="menu-hamburguer.js"></script>
+  <main id="container">
+    <section class="todo-section">
+      <div class="container">
+
+        <article class="todo-card">
+          <header>
+            <h2>Lista de Tarefas</h2>
+            <p>Adicione suas tarafeas do sia</p>
+          </header>
+
+            <form class="todo-form" id="todo-form">
+              <label for="tarefa" class="sr-only">Nova Tarefa</label>
+              <input type="text" placeholder="Digite uma tarefa..." id="tarefa" autocomplete="off">
+
+              <button type="submit">Adicionar</button>
+            </form>
+
+            <ul class="todo-list" id="todo-list"></ul>
+        </article>
+        
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/menu-hamburguer.js"></script>
+  <script src="js/fundo-aleatorio.js"></script>
+  <script src="./js/todo-list.js"></script>
 </body>
 
 </html>
