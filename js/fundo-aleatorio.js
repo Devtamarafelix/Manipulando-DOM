@@ -1,33 +1,34 @@
-// trocando o fundo do site com base no horário
+// Função para atualizar o fundo de forma automática
+function atualizarFundoAutomatico() {
+  // Pegando a data atual
+  const date = new Date()
 
-const date = new Date()
+  // pegando a hora atual em tempo real
+  const hora = date.getHours()
 
-// trocar o valor de hora para date.getHours()
-const hora = 7
+  // Reseto o fundo antes pra imagem da manhã não sobrescrever as outras
+  document.body.style.backgroundImage = "none"
 
-// pegando outros elementos
-const minutos = date.getMinutes()
-const anoCompleto = date.getFullYear()
+  // Se for de manhã (6h até 11h59), coloca a imagem
+  if (hora >= 6 && hora < 12) {
+    document.body.style.backgroundImage = "url('./assets/imagem-manha.jpg')"
+    document.body.style.backgroundSize = "cover"
 
-// se for de manhã, o background da página vai ser um
-// se for de tarde, o background da página vai ser outro
-// se for de noite, o background da página vai ser outro
+  // Se for de tarde (12h até 17h59), coloca o gradiente de tarde
+  } else if (hora >= 12 && hora < 18) {
+    document.body.style.background = "linear-gradient(145deg, #FF8A65, #FFB74D, #64B5F6)"
 
-// @media screen and (min-width: 800px)
-//      A      E      B
+  // Se for de noite (18h até 23h59), coloca o gradiente noturno
+  } else if (hora >= 18 && hora < 24) {
+    document.body.style.background = "linear-gradient(155deg, #000428, #211132, #004E92)"
 
-// Manhã
-if (hora >= 6 && hora < 12) {
-  // document.body.style.background = "linear-gradient(135deg, #faff65, #FFD180, #90CAF9)"
-
-  document.body.style.backgroundImage = "url('./assets/imagem-manha.jpg')";
-
-} else if (hora >= 12 && hora < 18) {
-  document.body.style.background = "linear-gradient(145deg, #FF8A65, #FFB74D, #64B5F6)"
-
-} else if (hora >= 18 && hora < 24) {
-  document.body.style.background = "linear-gradient(155deg, #000428,  #211132, #004E92)"
-
-} else {
-  document.body.style.background = "linear-gradient(155deg, #0b7c51,  #3f0d74, #183f60)"
+  // Se for madrugada (00h até 05h59), coloca esse
+  } else {
+    document.body.style.background = "linear-gradient(155deg, #0b7c51, #3f0d74, #183f60)"
+  }
 }
+
+atualizarFundoAutomatico()
+
+// Rodo a função a cada 1 minuto (60000ms) pra checar se a hora mudou 
+setInterval(atualizarFundoAutomatico, 60000)
