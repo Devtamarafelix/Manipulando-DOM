@@ -1,75 +1,136 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<!doctype html>
+<html lang="pt-br" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mini Site</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Icons BootStrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <!-- TailwindCSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Site</title>
+  <body class="bg-cover bg-no-repeat bg-center bg-fixed min-h-screen bg-neutral-900 font-sans">
+    <a href="#conteudo" class="absolute -top-[3.125rem] left-[0.625rem] bg-black text-neutral-200 px-4 py-[0.625rem] z-[1000] rounded-2xl focus:top-[0.625rem] transition-all"> Pular para o conteúdo principal</a>
 
-  <!-- Fonts google -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap"
-    rel="stylesheet">
+    <!-- header principal -->
+    <header>
+      <div class="w-full max-w-[1440px] h-full p-4 m-auto">
+        <div
+          class="flex justify-between items-center bg-black/70 backdrop-blur-sm rounded-4xl h-16 py-2 px-4 m-auto max-w-2xl relative z-9999 border border-zinc-200"
+        >
+          <h1><a href="/" class="text-zinc-200 font-medium">Logo</a></h1>
 
-  <!-- Icons BootStrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+          <button
+            type="button"
+            aria-label="Abrir Menu"
+            aria-expanded="false"
+            aria-controls="navegacao-primaria"
+            id="btn-menu"
+            class="h-10 w-10 text-3xl cursor-pointer text-zinc-200 md:hidden"
+          >
+            <i
+              class="bi bi-list flex items-center justify-center"
+              aria-hidden="true"
+            ></i>
+          </button>
 
-  <!-- css global -->
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-  <header>
-    <div class="container">
-      <div class="header">
-
-        <h1><a href="/">Logo</a></h1>
-
-        <button type="button" aria-label="Abrir Menu" aria-expanded="false" aria-controls="navegacao-primaria"
-          id="btn-menu">
-          <i class="bi bi-list" aria-hidden="true"></i>
-        </button>
-
-        <nav id="navegacao-primaria" aria-label="Menu principal">
-          <ul>
-            <li><a href="#">Ínicio</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="#">Serviços</a></li>
-            <li><a href="#">Contato</a></li>
-          </ul>
-        </nav>
+          <nav
+            id="navegacao-primaria"
+            aria-label="Menu principal"
+            class="hidden md:block"
+          >
+            <ul class="flex flex-col gap-4 md:flex-row">
+              <li><a href="#" class="text-xl text-zinc-300 hover:text-white transition-colors duration-200">Ínicio</a></li>
+              <li><a href="#" class="text-xl text-zinc-300 hover:text-white transition-colors duration-200">Sobre</a></li>
+              <li><a href="#" class="text-xl text-zinc-300 hover:text-white transition-colors duration-200">Serviços</a></li>
+              <li><a href="#" class="text-xl text-zinc-300 hover:text-white transition-colors duration-200">Contato</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main id="container">
-    <section class="todo-section">
-      <div class="container">
+    <main id="conteudo" class="flex flex-col gap-8 px-4 md:px-0">
+      <!-- Seção de todo-list -->
+      <section class="todo-section">
+        <div class="container w-full mx-auto">
+          <article class="bg-black/55 backdrop-blur-[10px] text-neutral-200 w-full max-w-[40rem] p-4 mx-auto rounded-[2rem]">
+            <header class="mb-4 text-center">
+              <h2 class="text-[clamp(1.5rem,5vw,2rem)]">Lista de tarefas</h2>
+              <p class="text-[clamp(1rem,5vw,1.25rem)]">Adicione suas tarefas do dia</p>
+            </header>
 
-        <article class="todo-card">
-          <header>
-            <h2>Lista de Tarefas</h2>
-            <p>Adicione suas tarafeas do sia</p>
-          </header>
-
-            <form class="todo-form" id="todo-form">
+            <form class="flex flex-col md:flex-row gap-3" id="todo-form">
               <label for="tarefa" class="sr-only">Nova Tarefa</label>
-              <input type="text" placeholder="Digite uma tarefa..." id="tarefa" autocomplete="off">
+              <input
+                type="text"
+                placeholder="Digite uma tarefa..."
+                id="tarefa"
+                autocomplete="off"
+                class="flex-1 rounded-2xl border-2 border-transparent bg-white text-zinc-800 outline-none transition focus:border-indigo-600 p-4"
+              />
 
-              <button type="submit">Adicionar</button>
+              <button
+                type="submit"
+                class="w-full md:w-auto bg-zinc-300 px-5 py-3 font-medium rounded-2xl text-zinc-950 hover:bg-black hover:text-neutral-200 transition-colors cursor-pointer shrink-0"
+              >
+                Adicionar
+              </button>
             </form>
 
-            <ul class="todo-list" id="todo-list"></ul>
-        </article>
-        
-      </div>
-    </section>
-  </main>
+            <ul class="flex flex-col gap-2 mt-4 max-h-[20rem] overflow-y-auto" id="todo-list"></ul>
+          </article>
+        </div>
+      </section>
 
-  <script src="./js/menu-hamburguer.js"></script>
-  <script src="js/fundo-aleatorio.js"></script>
-  <script src="./js/todo-list.js"></script>
-</body>
+      <!-- Seção de busca de pokémon -->
+      <section class="pokemon-section">
+        <div class="container w-full mx-auto">
+          <article class="pokemon-card bg-black/55 backdrop-blur-[10px] text-neutral-200 w-full max-w-[40rem] p-4 mx-auto rounded-[2rem]">
+            <header class="mb-4 text-center">
+              <h2 class="text-[clamp(1.5rem,5vw,2rem)]">Pokédex</h2>
+              <p class="text-[clamp(1rem,5vw,1.25rem)]">Pesquise qualquer Pokémon</p>
+            </header>
 
+            <form id="pokemon-form" class="flex flex-col md:flex-row gap-3">
+              <label for="pokemon-input" class="sr-only">
+                Digite o nome do pokémon
+              </label>
+
+              <input
+                type="text"
+                id="pokemon-input"
+                placeholder="Ex: Pikachu"
+                autocomplete="off"
+                class="flex-1 rounded-2xl border-2 border-transparent bg-white text-zinc-800 outline-none transition focus:border-indigo-600 p-4"
+              />
+
+              <button
+                type="submit"
+                class="w-full md:w-auto bg-zinc-300 px-5 py-3 font-medium rounded-2xl text-zinc-950 hover:bg-black hover:text-neutral-200 transition-colors cursor-pointer shrink-0"
+              >
+                Buscar pokémon
+              </button>
+            </form>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <script src="./js/menu-hamburguer.js"></script>
+    <script src="./js/fundo-aleatorio.js"></script>
+    <script src="./js/todo-list.js"></script>
+    <script src="./js/pokemon-api.js"></script>
+  </body>
 </html>

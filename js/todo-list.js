@@ -25,7 +25,7 @@ function adicionarTarefa(event) {
 
   // criando um li
   const itemLista = document.createElement("li");
-  itemLista.classList.add("todo-item");
+  itemLista.className = "flex justify-between items-center p-2 rounded-[1rem] bg-black/80";
 
   // criando um span para o texto
   const texto = document.createElement("span");
@@ -34,7 +34,7 @@ function adicionarTarefa(event) {
   // criando o botão de concluir
   const btnConcluir = document.createElement("button");
   btnConcluir.setAttribute("aria-label", "Concluir tarefa");
-  btnConcluir.classList.add("concluir");
+  btnConcluir.className = "flex items-center justify-center p-1 rounded-lg border border-[#29a45c] text-[#29a45c] bg-[#126c38]/35";
 
   // criando o ícone de concluir
   const iconConcluir = document.createElement("i");
@@ -45,7 +45,7 @@ function adicionarTarefa(event) {
   // criando o botão de remover
   const btnRemover = document.createElement("button");
   btnRemover.setAttribute("aria-label", "Remover tarefa");
-  btnRemover.classList.add("remover");
+  btnRemover.className = "flex items-center justify-center p-1 rounded-lg border border-[#951c1c] text-[#951c1c] bg-[#6c1212]/35 hover:text-[#c22323] hover:bg-[#6c1212]/50 transition-colors";
 
   // criando o ícone de remover
   const iconRemover = document.createElement("i");
@@ -55,7 +55,7 @@ function adicionarTarefa(event) {
 
   // container para os botões
   const acoes = document.createElement("div");
-  acoes.classList.add("acoes");
+  acoes.className = "flex items-center gap-2";
 
   // adicionando os botões na div
   acoes.append(btnConcluir);
@@ -82,20 +82,28 @@ function adicionarTarefa(event) {
 
   //concluindo a tarefa
   btnConcluir.addEventListener("click", () => {
-    texto.classList.toggle("tarefa-concluida");
+    texto.classList.toggle("line-through");
+    texto.classList.toggle("text-[#6a6a6a]");
 
+    const tarefaConcluida = texto.classList.contains("line-through");
     // se na lista de classes do elemento texto contém a classe.tarefa-concluida
     // então, ele executará o bloco de código, caso contrário, não.
-    if (texto.classList.contains("tarefa-concluida")) {
+    if (tarefaConcluida) {
       iconConcluir.classList.remove("bi-check-lg");
       iconConcluir.classList.add("bi-arrow-clockwise");
 
       btnConcluir.setAttribute("aria-label", "Desmarcar tarefa");
+
+      //move o item da lista para o final da lista
+      lista.append(itemLista);
     } else {
       iconConcluir.classList.remove("bi-arrow-clockwise");
       iconConcluir.classList.add("bi-check-lg");
 
       btnConcluir.setAttribute("aria-label", "Concluir tarefa");
+
+      // move o elmento para o começo da alista
+      lista.prepend(itemLista);
     }
   });
 }
