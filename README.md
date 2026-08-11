@@ -24,3 +24,8 @@ O objetivo principal desta etapa do curso foi praticar a **manipulação da DOM 
 * **HTML5** — Estruturação semântica da página.
 * **Tailwind CSS** — Estilização moderna e ágil utilizando classes utilitárias e design responsivo.
 * **JavaScript (ES6+)** — Manipulação da DOM, consumo de APIs (`fetch`), funções assíncronas e controle de tempo (`setInterval`).
+
+## 🌐 Deploy (Projeto Online)
+
+Você pode testar e navegar pelo projeto em tempo real acessando:
+🔗 [Acessar Projeto no GitHub Pages](https://devtamarafelix.github.io/Manipulando-DOM-com-projetos-praticos/)
