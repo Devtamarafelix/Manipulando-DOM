@@ -32,8 +32,7 @@ async function buscarPokemon(event) {
 
     if (!resposta.ok) {
       console.error("Pokémon não encontrado");
-      div.innerHTML =
-        `<p class="text-[#ea0909] mt-4 text-xl text-center font-semibold">
+      div.innerHTML = `<p class="text-[#ea0909] mt-4 text-xl text-center font-semibold">
             Pokémon não encontrado. Tente novamente!
          </p>`;
       pokemonCard.append(div);
@@ -46,7 +45,7 @@ async function buscarPokemon(event) {
     console.log(dadosPokemon);
 
     // pega os elementos do pokemon
-    const tipos = dadosPokemon.types.map(item => item.type.name).join(' / ');
+    const tipos = dadosPokemon.types.map((item) => item.type.name).join(" / ");
 
     div.innerHTML = `
       <section class="mt-4 border border-[#fcfcfc]/35 rounded-3xl bg-black/55 backdrop-blur-[10px] p-4">
@@ -59,7 +58,7 @@ async function buscarPokemon(event) {
         <div>
           <h3 class="text 3-xl md:text-4xl font-extrabold mt-4 capitalize"> ${dadosPokemon.name} </h3>
           <p class="text-lg"> <strong>Altura:</strong> ${dadosPokemon.height / 10} m</p>
-          <p class="text-lg"> <strong>Altura:</strong> ${dadosPokemon.weight / 10} kg</p>
+          <p class="text-lg"> <strong>Peso:</strong> ${dadosPokemon.weight / 10} kg</p>
           <p class="text-lg capitalize"> <strong>Tipo:</strong> ${tipos}</p>
         </div>
       </section>
